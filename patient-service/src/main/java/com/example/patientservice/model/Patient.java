@@ -37,4 +37,12 @@ public class Patient {
 
     @NotNull
     private LocalDate registeredDate;
+
+    public Patient(String name, String email, String address, LocalDate dateOfBirth, LocalDate registeredDate) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.dateOfBirth = dateOfBirth;
+        this.registeredDate = registeredDate;
+    }
 }
