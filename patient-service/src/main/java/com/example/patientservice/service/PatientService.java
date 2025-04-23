@@ -52,4 +52,8 @@ public class PatientService {
         }
         return repo.save(mapper.toPatient(dto)).getId();
     }
+
+    public void deletePatient(UUID id) {
+        repo.deleteById(id);
+    }
 }
