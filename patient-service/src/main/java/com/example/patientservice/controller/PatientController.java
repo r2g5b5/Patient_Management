@@ -16,7 +16,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/patients")
-@Tag(name="Patient",description = "API for managing Patients")
+@Tag(name = "Patient", description = "API for managing Patients")
 public class PatientController {
     private final PatientService service;
 

@@ -35,8 +35,7 @@ public class PatientService {
 
     @Transactional
     public PatientResponseDTO updatePatient(UUID id, PatientRequestDTO dto) {
-        Patient patient = repo.findById(id).orElseThrow(() ->
-                new PatientNotFoundException("patient not found with ID: " + id));
+        Patient patient = repo.findById(id).orElseThrow(() -> new PatientNotFoundException("patient not found with ID: " + id));
         if (repo.existsByEmailAndIdNot(dto.getEmail(), id)) {
             throw new EmailAlreadyExistsException("A Patient with this email already exists " + dto.getEmail());
         }

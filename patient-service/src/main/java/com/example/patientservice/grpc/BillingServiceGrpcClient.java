@@ -15,12 +15,10 @@ public class BillingServiceGrpcClient {
     private final BillingServiceGrpc.BillingServiceBlockingStub stub;
 
     //localhost:9002/BillingService/CreatePatientAccount
-    public BillingServiceGrpcClient(@Value("${billing.service.address:localhost}") String serverAddress,
-                                    @Value("${billing.service.grpc.port:9002}") int serverPort) {
+    public BillingServiceGrpcClient(@Value("${billing.service.address:localhost}") String serverAddress, @Value("${billing.service.grpc.port:9002}") int serverPort) {
         log.info("Billing service grpc server started on {}:{}", serverAddress, serverPort);
 
-        ManagedChannel channel = ManagedChannelBuilder.forAddress(serverAddress, serverPort)
-                .usePlaintext().build();
+        ManagedChannel channel = ManagedChannelBuilder.forAddress(serverAddress, serverPort).usePlaintext().build();
         stub = BillingServiceGrpc.newBlockingStub(channel);
     }
 
